@@ -1,0 +1,123 @@
+Skip to content
+nidhish2004
+/
+Artificial-Intelligence-
+
+Type / to search
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+Files
+VAC
+8puzzleproblem.py
+8queen.py
+Apha&Betapruning.py
+Astaralgorithm.py
+BestFirstSearch.pl
+DecisionTree.py
+DietingSystemDisease.pl
+FeedforwardneuralNetwork.py
+FruitBackTracking.pl
+MapColoringtoimplementCSP.py
+MedicalDiagnosis.pl
+Minimax.py
+MonkeyBanana.pl
+Planetsmoonsdb.pl
+TicTacToe.py
+TravellingSalesmanProblem.py
+backward.pl
+bird.pl
+criptarithmetic.py
+family.pl
+forward.pl
+hanoi.pl
+implementationofBFS.py
+implementationofDFS.py
+missionariescannibalproblem.py
+namedob.pl
+student.pl
+sumofn.pl
+travellingsalesman.py
+vaccumcleaner.py
+waterjug.py
+BreadcrumbsArtificial-Intelligence-
+/vaccumcleaner.py
+Latest commit
+nidhish2004
+nidhish2004
+Add files via upload
+2513a97
+ · 
+3 weeks ago
+History
+File metadata and controls
+
+Code
+
+Blame
+43 lines (43 loc) · 1.74 KB
+import random
+class VacuumCleaner:
+    def __init__(self, grid_size):
+        self.grid_size = grid_size
+        self.current_row = random.randint(0, grid_size - 1)
+        self.current_col = random.randint(0, grid_size - 1)
+        self.grid = [[random.choice([0, 1]) for _ in range(grid_size)] for _ in range(grid_size)]
+    def clean(self):
+        print("Initial Grid:")
+        self.print_grid()
+        while True:
+            print(f"Current Position: ({self.current_row}, {self.current_col})")
+            if self.grid[self.current_row][self.current_col] == 1:
+                print("Cell is dirty. Cleaning...")
+                self.grid[self.current_row][self.current_col] = 0
+            else:
+                print("Cell is already clean.")
+            self.move_randomly()
+            print("\nUpdated Grid:")
+            self.print_grid()
+            if self.check_all_clean():
+                print("All cells are clean. Cleaning process completed.")
+                break
+    def move_randomly(self):
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]  # Right, Left, Down, Up
+        random_direction = random.choice(directions)
+        new_row = self.current_row + random_direction[0]
+        new_col = self.current_col + random_direction[1]
+        if 0 <= new_row < self.grid_size and 0 <= new_col < self.grid_size:
+            self.current_row = new_row
+            self.current_col = new_col
+    def print_grid(self):
+        for row in self.grid:
+            print(row)
+    def check_all_clean(self):
+        for row in self.grid:
+            if 1 in row:
+                return False
+        return True
+if __name__ == "__main__":
+    grid_size = 3  
+    cleaner = VacuumCleaner(grid_size)
+    cleaner.clean()
+Symbols
+Find definitions and references for functions and other symbols in this file by clicking a symbol below or in the code.
+Filter symbols
+r
+class
+VacuumCleaner
+func
+__init__
+func
+clean
+func
+move_randomly
+func
+print_grid
+func
+check_all_clean
+Artificial-Intelligence-/vaccumcleaner.py at main · nidhish2004/Artificial-Intelligence-
